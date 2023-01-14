@@ -27,7 +27,7 @@ export default  function UserList({data}) {
 
           return (
             <li key={user._id} className="py-3 px-0">
-                <Card user={user} linkUrl={`/admin/user/${user._id}`} labelLink="Editer"/>
+                <Card user={user} linkUrl={`/admin/user/${user._id}`} labelLink="Editer" seeUrl={`/admin/user/edit/${user._id}`} labelSee="Voir plus"/>
             </li>
           );
           

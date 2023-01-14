@@ -10,7 +10,7 @@ async function deleteElement(id, refresh) {
 	return Router.push('/admin/user')   
 }
 
-export default function Card({user,linkUrl,labelLink}){
+export default function Card({user,linkUrl,labelLink, seeUrl, labelSee}){
 
 	return (
 		<>
@@ -25,9 +25,11 @@ export default function Card({user,linkUrl,labelLink}){
 				<div className="flex flex-col flex-wrap">
 					<p>entré à <strong>{user.start? user.start: '--'}</strong> sorti à <strong>{user.end? user.end: '--'}</strong></p>
 					<p>nombre d'heure travaillé : <strong>{user.total? user.total: '--'}</strong></p>
-					<Link className="text-violet-500 text-lg" href={linkUrl}>{labelLink}</Link>
-					<button className="text-red-500 text-lg" onClick={() => deleteElement(user._id)}>Supprimer</button>
-				
+					<div className="flex flex-row flex-wrap justify-start">
+						<Link className="text-violet-500 text-lg" href={linkUrl}>{labelLink}</Link>
+						<Link className="text-violet text-lg px-5" href={seeUrl}>{labelSee}</Link>
+						<button className="text-red-500 text-lg" onClick={() => deleteElement(user._id)}>Supprimer</button>
+					</div>
 				</div>
 			</div>
 		</div>
