@@ -2,20 +2,20 @@ import Card from '../../components/card';
 import Link from 'next/link';
 
 export async function getStaticProps() {
-
  
 const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user`)
 const data = await res.json()
 
   return {
     props: {
-      data,
+      data
     }
   }
   
 }
 
 export default  function UserList({data}) {
+
         return (
     <div>
       <main>
@@ -27,7 +27,7 @@ export default  function UserList({data}) {
 
           return (
             <li key={user._id} className="py-3 px-0">
-                <Card user={user} linkUrl="/admin/user/edit" labelLink="Editer"/>
+                <Card user={user} linkUrl={`/admin/user/${user._id}`} labelLink="Editer"/>
             </li>
           );
           
